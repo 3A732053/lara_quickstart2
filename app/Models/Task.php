@@ -10,4 +10,10 @@ class Task extends Model
     use HasFactory;
 
     protected  $fillable = ['name'];
+
+    #每個task只屬於一個user
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

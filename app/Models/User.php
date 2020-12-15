@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    #一名user有多項tasks
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
