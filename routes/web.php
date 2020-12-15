@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 #顯示所有任務
-Route::get('/tasks',[\App\Http\Controllers\TaskController::class],'index') ->name('tasks.index');
+Route::get('/tasks',[TaskController::class,'index']) ->name('tasks.index');
 #儲存任務
-Route::post('/task',[\App\Http\Controllers\TaskController::class],'store') ->name('task.store');
+Route::post('/task',[TaskController::class,'store']) ->name('task.store');
 #刪除任務
-Route::delete('/task/{task}',[\App\Http\Controllers\TaskController::class],'destroy') ->name('task.destroy');
+Route::delete('/task/{task}',[TaskController::class,'destroy']) ->name('task.destroy');
