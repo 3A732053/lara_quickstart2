@@ -25,6 +25,12 @@ class TaskController extends Controller
             #任務名稱為必填欄位，且字數不可超過255
             'name' => 'required|max:255',
         ]);
+        
+        $request->user()->tasks()->create([
+            'name' => $request->name,
+        ]);
+
+        return redirect('/tasks');
     }
 
     public function destroy(Request $request,Task $task)
