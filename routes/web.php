@@ -15,12 +15,6 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
-
-    $user = App\User::find(1);
-
-    foreach ($user->tasks as $task) {
-        echo $task->name;
-    }
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
